@@ -1,0 +1,51 @@
+type Query {
+    character(id: ID!): Character!
+    characters: [Character!]!
+}
+
+type Mutation {
+    characterCreate(input: CharacterCreateInput!): Character!
+    characterUpdate(id: ID!, input: CharacterCreateInput!): Character!
+    characterDelete(id: ID!): Result!
+}
+
+type Character {
+    id: ID!
+    name: String!
+    title: String!
+    weapon: String
+    physicalAttributes: PhysicalAttributes
+}
+
+input CharacterCreateInput {
+    name: String!
+    title: String!
+    weapon: String
+    physicalAttributes: PhysicalAttributesInput
+}
+
+input PhysicalAttributesInput {
+    culture: String
+    gender: Gender
+    eyeColor: String
+    hairColor: String
+    height: String
+}
+
+type PhysicalAttributes {
+    culture: String
+    gender: Gender
+    eyeColor: String
+    hairColor: String
+    height: String
+}
+
+enum Gender {
+    MALE
+    FEMALE
+}
+
+enum Result {
+    SUCCESS
+    FAILURE
+}
