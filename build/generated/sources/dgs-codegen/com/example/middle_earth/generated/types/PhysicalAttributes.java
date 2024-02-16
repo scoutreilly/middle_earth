@@ -1,5 +1,6 @@
 package com.example.middle_earth.generated.types;
 
+import java.lang.Integer;
 import java.lang.Object;
 import java.lang.Override;
 import java.lang.String;
@@ -13,18 +14,21 @@ public class PhysicalAttributes {
 
   private String hairColor;
 
-  private String height;
+  private Integer height;
+
+  private HeightUnit heightUnit;
 
   public PhysicalAttributes() {
   }
 
   public PhysicalAttributes(String culture, Gender gender, String eyeColor, String hairColor,
-      String height) {
+      Integer height, HeightUnit heightUnit) {
     this.culture = culture;
     this.gender = gender;
     this.eyeColor = eyeColor;
     this.hairColor = hairColor;
     this.height = height;
+    this.heightUnit = heightUnit;
   }
 
   public String getCulture() {
@@ -59,17 +63,25 @@ public class PhysicalAttributes {
     this.hairColor = hairColor;
   }
 
-  public String getHeight() {
+  public Integer getHeight() {
     return height;
   }
 
-  public void setHeight(String height) {
+  public void setHeight(Integer height) {
     this.height = height;
+  }
+
+  public HeightUnit getHeightUnit() {
+    return heightUnit;
+  }
+
+  public void setHeightUnit(HeightUnit heightUnit) {
+    this.heightUnit = heightUnit;
   }
 
   @Override
   public String toString() {
-    return "PhysicalAttributes{" + "culture='" + culture + "'," +"gender='" + gender + "'," +"eyeColor='" + eyeColor + "'," +"hairColor='" + hairColor + "'," +"height='" + height + "'" +"}";
+    return "PhysicalAttributes{" + "culture='" + culture + "'," +"gender='" + gender + "'," +"eyeColor='" + eyeColor + "'," +"hairColor='" + hairColor + "'," +"height='" + height + "'," +"heightUnit='" + heightUnit + "'" +"}";
   }
 
   @Override
@@ -81,12 +93,13 @@ public class PhysicalAttributes {
                             java.util.Objects.equals(gender, that.gender) &&
                             java.util.Objects.equals(eyeColor, that.eyeColor) &&
                             java.util.Objects.equals(hairColor, that.hairColor) &&
-                            java.util.Objects.equals(height, that.height);
+                            java.util.Objects.equals(height, that.height) &&
+                            java.util.Objects.equals(heightUnit, that.heightUnit);
   }
 
   @Override
   public int hashCode() {
-    return java.util.Objects.hash(culture, gender, eyeColor, hairColor, height);
+    return java.util.Objects.hash(culture, gender, eyeColor, hairColor, height, heightUnit);
   }
 
   public static com.example.middle_earth.generated.types.PhysicalAttributes.Builder newBuilder() {
@@ -102,7 +115,9 @@ public class PhysicalAttributes {
 
     private String hairColor;
 
-    private String height;
+    private Integer height;
+
+    private HeightUnit heightUnit;
 
     public PhysicalAttributes build() {
                   com.example.middle_earth.generated.types.PhysicalAttributes result = new com.example.middle_earth.generated.types.PhysicalAttributes();
@@ -111,6 +126,7 @@ public class PhysicalAttributes {
           result.eyeColor = this.eyeColor;
           result.hairColor = this.hairColor;
           result.height = this.height;
+          result.heightUnit = this.heightUnit;
                       return result;
     }
 
@@ -139,8 +155,14 @@ public class PhysicalAttributes {
     }
 
     public com.example.middle_earth.generated.types.PhysicalAttributes.Builder height(
-        String height) {
+        Integer height) {
       this.height = height;
+      return this;
+    }
+
+    public com.example.middle_earth.generated.types.PhysicalAttributes.Builder heightUnit(
+        HeightUnit heightUnit) {
+      this.heightUnit = heightUnit;
       return this;
     }
   }

@@ -1,48 +1,81 @@
 type Query {
+    """ Query a character by its' unique id """
     character(id: ID!): Character!
+    """ Query all characters """
     characters: [Character!]!
 }
 
 type Mutation {
+    """ Create a new character """
     characterCreate(input: CharacterCreateInput!): Character!
+    """ Update an existing character """
     characterUpdate(id: ID!, input: CharacterCreateInput!): Character!
+    """ Delete a character by its' unique id """
     characterDelete(id: ID!): Result!
 }
 
 type Character {
+    """ Unique identifier for the character """
     id: ID!
+    """ Name of the character """
     name: String!
+    """ Title character goes by """
     title: String!
+    """ Character's weapon of choice """
     weapon: String
+    """ Physical attributes of the character """
     physicalAttributes: PhysicalAttributes
 }
 
 input CharacterCreateInput {
+    """ Name of the character """
     name: String!
+    """ Title character goes by """
     title: String!
+    """ Character's weapon of choice """
     weapon: String
+    """ Physical attributes of the character """
     physicalAttributes: PhysicalAttributesInput
 }
 
 input PhysicalAttributesInput {
+    """ Culture the character belongs to """
     culture: String
+    """ Gender of the character """
     gender: Gender
+    """ Eye color of the character """
     eyeColor: String
+    """ Hair color of the character """
     hairColor: String
-    height: String
+    """ Height of the character """
+    height: Int
+    """ Unit of measurement for the height """
+    heightUnit: HeightUnit
 }
 
 type PhysicalAttributes {
+    """ Culture the character belongs to """
     culture: String
+    """ Gender of the character """
     gender: Gender
+    """ Eye color of the character """
     eyeColor: String
+    """ Hair color of the character """
     hairColor: String
-    height: String
+    """ Height of the character """
+    height: Int
+    """ Unit of measurement for the height """
+    heightUnit: HeightUnit
 }
 
 enum Gender {
     MALE
     FEMALE
+}
+
+enum HeightUnit {
+    CM
+    INCH
 }
 
 enum Result {

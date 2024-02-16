@@ -67,6 +67,8 @@ public class DgsConstants {
     public static final String HairColor = "hairColor";
 
     public static final String Height = "height";
+
+    public static final String HeightUnit = "heightUnit";
   }
 
   public static class CHARACTERCREATEINPUT {
@@ -93,5 +95,7 @@ public class DgsConstants {
     public static final String HairColor = "hairColor";
 
     public static final String Height = "height";
+
+    public static final String HeightUnit = "heightUnit";
   }
 }

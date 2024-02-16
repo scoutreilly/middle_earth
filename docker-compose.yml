@@ -1,0 +1,22 @@
+version: '3'
+
+services:
+  db:
+    image: toleg/postgres_mysql_fdw
+    restart: always
+    ports:
+      - 5433:5432
+    command:
+      - "postgres"
+      - "-c"
+      - "wal_level=logical"
+    environment:
+      POSTGRES_USER: aragorn
+      POSTGRES_PASSWORD: tricksyhobbits
+    # volumes:
+    #   - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+    container_name: middle_earth
+
+volumes:
+  database_data:
+    driver: local

@@ -29,7 +29,8 @@ input PhysicalAttributesInput {
     gender: Gender
     eyeColor: String
     hairColor: String
-    height: String
+    height: Int
+    heightUnit: HeightUnit
 }
 
 type PhysicalAttributes {
@@ -37,12 +38,18 @@ type PhysicalAttributes {
     gender: Gender
     eyeColor: String
     hairColor: String
-    height: String
+    height: Int
+    heightUnit: HeightUnit
 }
 
 enum Gender {
     MALE
     FEMALE
+}
+
+enum HeightUnit {
+    CM
+    INCH
 }
 
 enum Result {
